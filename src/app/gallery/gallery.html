@@ -1,0 +1,32 @@
+<h1>Galería de Productos</h1>
+
+<div class="gallery">
+
+  @for (image of images; track image.title) {
+
+    <app-image-card
+      [image]="image"
+      (click)="openImage(image)">
+    </app-image-card>
+
+  }
+
+</div>
+
+@if (selectedImage) {
+
+<div class="modal" (click)="closeImage()">
+
+  <div class="modal-content">
+
+    <img [src]="selectedImage.src">
+
+    <h2>{{ selectedImage.title }}</h2>
+
+    <p>{{ selectedImage.description }}</p>
+
+  </div>
+
+</div>
+
+}
